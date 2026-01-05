@@ -54,7 +54,7 @@ while cap.isOpened():
 cap.release()
 cv2.destroyAllWindows()
 
-# --- Append CSV instead of overwrite ---
+#  Append CSV instead of overwrite 
 file = os.path.join("dataset", "features.csv")
 df = pd.DataFrame(records, columns=["EAR", "Head_Tilt", "Frame"])
 
