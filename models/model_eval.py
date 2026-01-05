@@ -37,9 +37,8 @@ y_test = y[split_idx:]
 
 print(f"Test set size: {len(y_test)} samples")
 
-# ============================================
+
 # EVALUATE ML MODEL
-# ============================================
 print("\n[ML MODEL EVALUATION]")
 print("="*50)
 
@@ -59,9 +58,8 @@ print(f"              Alert  Drowsy")
 print(f"Actual Alert   {cm_ml[0][0]:5d}  {cm_ml[0][1]:5d}")
 print(f"       Drowsy  {cm_ml[1][0]:5d}  {cm_ml[1][1]:5d}")
 
-# ============================================
+
 # EVALUATE LSTM MODEL
-# ============================================
 print("\n[LSTM MODEL EVALUATION]")
 print("="*50)
 
