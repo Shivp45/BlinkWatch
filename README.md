@@ -97,21 +97,38 @@ Image5
 
 Flow Diagram: 
 
-Open Webcam
-      ↓
-Capture Frames (Alert + Drowsy)
-      ↓
-ESC Pressed → Save blink features (features.csv)
-      ↓
-Generate sequences (X.npy, y.npy)  [temporal dataset creation]
-      ↓
-Train ML model (Random Forest → ml_model.pkl)
-      ↓
-Train LSTM model (lstm_model.h5)
-      ↓
-Evaluate models (model_eval.py)
-      ↓
-Run real-time detection (realtime_detect.py)
-      ↓
-Overlay status + Trigger alarm if drowsy
+Open Webcam  
+
+      ↓  
+
+Capture Frames (Alert + Drowsy)  
+
+      ↓  
+
+ESC Pressed → Save blink features (features.csv)  
+
+      ↓  
+
+Generate sequences (X.npy, y.npy)  [temporal dataset creation]  
+
+      ↓  
+
+Train ML model (Random Forest → ml_model.pkl)  
+
+      ↓  
+
+Train LSTM model (lstm_model.h5)  
+
+      ↓  
+
+Evaluate models (model_eval.py)  
+
+      ↓  
+
+Run real-time detection (realtime_detect.py)  
+
+      ↓  
+
+Overlay status + Trigger alarm if drowsy  
+
 
