@@ -97,73 +97,21 @@ Image5
 
 Flow Diagram: 
 
-┌──────────────────────┐
-│  Start System        │
-└──────────┬───────────┘
-           ▼
-┌──────────────────────┐
-│  Open Webcam Feed    │
-└──────────┬───────────┘
-           ▼
-┌────────────────────────────┐
-│  Detect Face Landmarks     │
-│  (MediaPipe Face Mesh)     │
-└──────────┬─────────────────┘
-           ▼
-┌────────────────────────────┐
-│  Extract EAR per Frame     │
-│  (eye aspect ratio values) │
-└──────────┬─────────────────┘
-           ▼
-┌────────────────────────────┐
-│  Detect Blinks using EAR   │
-│  Threshold + Timings       │
-└──────────┬─────────────────┘
-           ▼
-┌────────────────────────────┐
-│  Store Raw Blink Metrics   │
-│  → features.csv created    │
-└──────────┬─────────────────┘
-           ▼
-┌────────────────────────────┐
-│  Run Feature Extraction    │
-│  (clean + sequence build)  │
-│  → X.npy, y.npy created    │
-└──────────┬─────────────────┘
-           ▼
-┌────────────────────────────┐
-│  Train ML Model            │
-│  (Random Forest Classifier)│
-│  → ml_model.pkl saved      │
-└──────────┬─────────────────┘
-           ▼
-┌────────────────────────────┐
-│  Train LSTM Temporal Model │
-│  (TensorFlow Keras LSTM)   │
-│  → lstm_model.keras saved  │
-└──────────┬─────────────────┘
-           ▼
-┌────────────────────────────┐
-│  Evaluate Both Models      │
-│  → Accuracy comparison    │
-└──────────┬─────────────────┘
-           ▼
-┌────────────────────────────┐
-│  Load Trained Models       │
-│  + Open Webcam Again       │
-└──────────┬─────────────────┘
-           ▼
-┌────────────────────────────┐
-│  Real-Time Prediction      │
-│  (Alert / Drowsy status)   │
-└──────────┬─────────────────┘
-           ▼
-┌────────────────────────────┐
-│  Trigger Alarm if Drowsy   │
-│  (audio alert system)      │
-└──────────┬─────────────────┘
-           ▼
-┌──────────────────────┐
-│  End / Stop System   │   Press esc
-└──────────────────────┘
+Open Webcam
+      ↓
+Capture Frames (Alert + Drowsy)
+      ↓
+ESC Pressed → Save blink features (features.csv)
+      ↓
+Generate sequences (X.npy, y.npy)  [temporal dataset creation]
+      ↓
+Train ML model (Random Forest → ml_model.pkl)
+      ↓
+Train LSTM model (lstm_model.h5)
+      ↓
+Evaluate models (model_eval.py)
+      ↓
+Run real-time detection (realtime_detect.py)
+      ↓
+Overlay status + Trigger alarm if drowsy
 
