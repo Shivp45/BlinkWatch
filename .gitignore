@@ -1,0 +1,18 @@
+# Virtual environments
+cv_env/
+venv/
+
+# ML models & extracted data (generated locally)
+dataset/
+*.npy
+*.pkl
+*.h5
+*.keras
+*.tflite
+
+# Environment variables
+.env
+
+# Python cache & compiled files
+__pycache__/
+*.pyc
